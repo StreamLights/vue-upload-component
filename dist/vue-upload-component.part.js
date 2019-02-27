@@ -575,10 +575,11 @@
   var script = {
     methods: {
       change: function change(e) {
+        var ua = navigator.userAgent.toLowerCase();
         this.$parent.addInputFile(e.target);
         if (e.target.files) {
           e.target.value = '';
-          if (!/safari/i.test(navigator.userAgent)) {
+          if (!/(iphone|ipad|ipod|ios)/i.test(ua)) {
             e.target.type = '';
             e.target.type = 'file';
           }
